@@ -1,0 +1,95 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500" width="800" height="500">
+  <defs>
+    <linearGradient id="p1Bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#071326"/>
+      <stop offset="60%" stop-color="#0a1c38"/>
+      <stop offset="100%" stop-color="#030914"/>
+    </linearGradient>
+    <linearGradient id="waterGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#00f2fe"/>
+      <stop offset="100%" stop-color="#4facfe"/>
+    </linearGradient>
+    <linearGradient id="neonCyan" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#00f2fe"/>
+      <stop offset="100%" stop-color="#38ef7d"/>
+    </linearGradient>
+    <filter id="p1Glow" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="8" result="blur"/>
+      <feComposite in="SourceGraphic" in2="blur" operator="over"/>
+    </filter>
+  </defs>
+  
+  <!-- Background -->
+  <rect width="800" height="500" fill="url(#p1Bg)"/>
+  
+  <!-- Grid Matrix Overlay -->
+  <g stroke="rgba(0, 242, 254, 0.07)" stroke-width="1">
+    <line x1="0" y1="100" x2="800" y2="100"/>
+    <line x1="0" y1="200" x2="800" y2="200"/>
+    <line x1="0" y1="300" x2="800" y2="300"/>
+    <line x1="0" y1="400" x2="800" y2="400"/>
+    <line x1="160" y1="0" x2="160" y2="500"/>
+    <line x1="320" y1="0" x2="320" y2="500"/>
+    <line x1="480" y1="0" x2="480" y2="500"/>
+    <line x1="640" y1="0" x2="640" y2="500"/>
+  </g>
+
+  <!-- Glowing HUD Elements -->
+  <circle cx="400" cy="230" r="160" fill="none" stroke="#00f2fe" stroke-width="1.5" stroke-opacity="0.2" stroke-dasharray="8 6"/>
+  <circle cx="400" cy="230" r="140" fill="none" stroke="#4facfe" stroke-width="2" stroke-opacity="0.4"/>
+  <circle cx="400" cy="230" r="120" fill="rgba(0, 242, 254, 0.03)"/>
+
+  <!-- Water Purification Droplet Core Symbol -->
+  <g filter="url(#p1Glow)" transform="translate(400, 220)">
+    <path d="M0 -70 C35 -20, 65 25, 65 65 C65 105, 35 130, 0 130 C-35 130, -65 105, -65 65 C-65 25, -35 -20, 0 -70 Z" fill="url(#waterGrad)" fill-opacity="0.85"/>
+    <path d="M-15 45 C-15 30, 0 20, 15 35 C10 65, -10 65, -15 45 Z" fill="#ffffff" fill-opacity="0.6"/>
+  </g>
+
+  <!-- Central Wave Graphic inside Drop -->
+  <path d="M355 270 Q375 255 400 270 T445 270" fill="none" stroke="#ffffff" stroke-width="3" stroke-linecap="round"/>
+
+  <!-- Telemetry Sensor Cards -->
+  <!-- Card 1: pH Level -->
+  <g transform="translate(80, 100)">
+    <rect width="180" height="90" rx="12" fill="#0d1b33" stroke="#00f2fe" stroke-width="1.5" stroke-opacity="0.7"/>
+    <text x="20" y="32" fill="#94a3b8" font-family="'Inter', sans-serif" font-size="12" font-weight="600" letter-spacing="1">pH SENSOR</text>
+    <text x="20" y="65" fill="#38ef7d" font-family="'Space Grotesk', sans-serif" font-size="28" font-weight="700">7.35</text>
+    <text x="95" y="65" fill="#94a3b8" font-family="'Inter', sans-serif" font-size="12">OPTIMAL</text>
+  </g>
+
+  <!-- Card 2: Turbidity / NTU -->
+  <g transform="translate(540, 100)">
+    <rect width="180" height="90" rx="12" fill="#0d1b33" stroke="#4facfe" stroke-width="1.5" stroke-opacity="0.7"/>
+    <text x="20" y="32" fill="#94a3b8" font-family="'Inter', sans-serif" font-size="12" font-weight="600" letter-spacing="1">TURBIDITY</text>
+    <text x="20" y="65" fill="#00f2fe" font-family="'Space Grotesk', sans-serif" font-size="28" font-weight="700">1.2 NTU</text>
+    <text x="125" y="65" fill="#38ef7d" font-family="'Inter', sans-serif" font-size="12">PURE</text>
+  </g>
+
+  <!-- Card 3: TDS (PPM) -->
+  <g transform="translate(80, 310)">
+    <rect width="180" height="90" rx="12" fill="#0d1b33" stroke="#00f2fe" stroke-width="1.5" stroke-opacity="0.7"/>
+    <text x="20" y="32" fill="#94a3b8" font-family="'Inter', sans-serif" font-size="12" font-weight="600" letter-spacing="1">TDS METRICS</text>
+    <text x="20" y="65" fill="#00f2fe" font-family="'Space Grotesk', sans-serif" font-size="28" font-weight="700">142</text>
+    <text x="85" y="65" fill="#94a3b8" font-family="'Inter', sans-serif" font-size="12">PPM</text>
+  </g>
+
+  <!-- Card 4: ESP32 Status -->
+  <g transform="translate(540, 310)">
+    <rect width="180" height="90" rx="12" fill="#0d1b33" stroke="#38ef7d" stroke-width="1.5" stroke-opacity="0.7"/>
+    <text x="20" y="32" fill="#94a3b8" font-family="'Inter', sans-serif" font-size="12" font-weight="600" letter-spacing="1">MICROCONTROLLER</text>
+    <text x="20" y="65" fill="#38ef7d" font-family="'Space Grotesk', sans-serif" font-size="24" font-weight="700">ESP-32 ACTIVE</text>
+    <circle cx="155" cy="58" r="5" fill="#38ef7d" filter="url(#p1Glow)"/>
+  </g>
+
+  <!-- Connecting Circuit Bus Lines -->
+  <path d="M260 145 L320 145 L340 180" fill="none" stroke="#00f2fe" stroke-width="1.5" stroke-opacity="0.6"/>
+  <path d="M540 145 L480 145 L460 180" fill="none" stroke="#4facfe" stroke-width="1.5" stroke-opacity="0.6"/>
+  <path d="M260 355 L320 355 L340 300" fill="none" stroke="#00f2fe" stroke-width="1.5" stroke-opacity="0.6"/>
+  <path d="M540 355 L480 355 L460 300" fill="none" stroke="#38ef7d" stroke-width="1.5" stroke-opacity="0.6"/>
+
+  <!-- Top Badge -->
+  <g transform="translate(260, 30)">
+    <rect width="280" height="36" rx="18" fill="#0c172d" stroke="url(#neonCyan)" stroke-width="1"/>
+    <text x="140" y="23" fill="#00f2fe" font-family="'Space Grotesk', sans-serif" font-size="13" font-weight="700" text-anchor="middle" letter-spacing="2">SMART WATER PURIFICATION • AI + IOT</text>
+  </g>
+</svg>
